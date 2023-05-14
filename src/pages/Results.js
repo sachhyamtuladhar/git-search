@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useSearchParams, useNavigate, Link } from "react-router-dom";
-
-import { ReactComponent as HomeIcon } from "./../assets/icons/home.svg";
+import { useSearchParams } from "react-router-dom";
 
 import Container from "../components/Layout/Container";
 import RepoList from "../components/Repositories/RepoList";
@@ -9,7 +7,8 @@ import Searchbar from "../components/UI/Searchbar";
 import { toast } from "react-toastify";
 import { useSearch } from "../hooks/searchHook";
 import axios from "axios";
-
+import { fetchRepos } from "../store/repo-actions";
+import { useDispatch, useSelector } from "react-redux";
 
 
 const Results = () => {
@@ -19,23 +18,16 @@ const Results = () => {
   const search = useSearch();
   
 
-  const [repos, setRepos] = useState([]);
+  const { repos, sortBy, showLoading } = useSelector((state) => state.repo);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchRepos = async () => {
-      const searchQuery = searchParams
-        .get("search_query")
-        .split(" ")
-        .join("%20");
-      console.log(searchQuery);
-      const { data } = await axios.get(
-        `https://api.github.com/search/repositories?q=${searchQuery}&per_page=25&page=1`
-      );
-      setRepos(data.items);
-    };
+    if (searchParams.get("search_query").trim() === "") return;
+    const page = searchParams.get("page") ? searchParams.get("page") : 1;
+    dispatch(fetchRepos(searchParams.get("search_query"), page, sortBy));
+  }, [searchParams, dispatch, sortBy]);
 
-    fetchRepos();
-  }, [searchParams]);
 
   const handleSearch = () => {
     if (searchInputRef.current.value.trim === "") {

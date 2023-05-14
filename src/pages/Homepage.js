@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import Container from "../components/Layout/Container";
 import Searchbar from "../components/UI/Searchbar";
 import { useSearch } from "../hooks/searchHook";
 
+import myImage from "../assets/images/GitHub-Logo.png";
 
 const Homepage = () => {
   const searchInputRef = useRef();
@@ -37,6 +37,14 @@ const Homepage = () => {
           />
         </div>
       </div>
+      <div className="flex justify-center mt-32">
+        <img
+          src={myImage}
+          alt="github logo"
+          className="h-96 rounded-md object-cover "
+        />
+      </div>
+
     </Container>
   );
 };
