@@ -4,19 +4,20 @@ import { toast } from "react-toastify";
 
 import Container from "../components/Layout/Container";
 import Searchbar from "../components/UI/Searchbar";
+import { useSearch } from "../hooks/searchHook";
 
 
 const Homepage = () => {
   const searchInputRef = useRef();
 
-  const navigate = useNavigate();
+  const search = useSearch();
 
   const handleSearch = () => {
     if (searchInputRef.current.value.trim() === "") {
       toast("Text is required");
       return;
     }
-    navigate(`/results/?search_query=${searchInputRef.current.value}`);
+    search(searchInputRef.current.value);
   };
 
   return (
