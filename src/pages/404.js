@@ -7,7 +7,7 @@ const FouroFour = () => {
   console.log(params);
   return (
     <Container>
-      <div className="flex flex-col items-center justify-center bg-gray-100 ">
+      <div className="flex flex-col items-center justify-center h-full bg-gray-100 ">
           <h1 className="text-4xl font-bold text-center text-gray-900 mb-4">
             Oops! Page ''/{params["*"]}'' not found
           </h1>

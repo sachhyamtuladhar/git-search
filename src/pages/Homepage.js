@@ -5,13 +5,19 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/UI/Button";
 import Input from "../components/UI/Input";
 import Container from "../components/UI/Container";
+import { toast } from "react-toastify";
 
-const LandingPage = () => {
+
+const Homepage = () => {
   const searchInputRef = useRef();
 
   const navigate = useNavigate();
 
   const handleSearch = () => {
+    if (searchInputRef.current.value.trim() === "") {
+      toast("Text is required");
+      return;
+    }
     navigate(`/results/?search_query=${searchInputRef.current.value}`);
   };
 
@@ -20,7 +26,7 @@ const LandingPage = () => {
   return (
     <Container>
       <div className="flex justify-center  m-5 animate-fadeIn">
-        <div class="flex flex-col items-center">
+        <div className="flex flex-col items-center">
           <h1 className="text-blue-500  font-bold text-4xl font-HubotSans ">
             Github Search
           </h1>
@@ -52,4 +58,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default Homepage;
