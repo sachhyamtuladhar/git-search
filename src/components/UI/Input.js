@@ -1,4 +1,6 @@
 import React from "react";
+import { ReactComponent as SearchIcon } from "../../assets/icons/search.svg";
+
 
 const Input = React.forwardRef(({ label, ...props }, ref) => {
   return (
@@ -8,6 +10,7 @@ const Input = React.forwardRef(({ label, ...props }, ref) => {
           {label}
         </label>
       }
+       <SearchIcon className="h-5 w-5 text-gray-700 ml-2 mr-1" />
       <input
         ref={ref}
         className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"

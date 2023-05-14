@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import Container from "../components/UI/Container";
+import Container from "../components/Layout/Container";
 
 const FouroFour = () => {
   const params = useParams();
