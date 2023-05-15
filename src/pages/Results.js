@@ -6,7 +6,6 @@ import RepoList from "../components/Repositories/RepoList";
 import Searchbar from "../components/UI/Searchbar";
 import { toast } from "react-toastify";
 import { useSearch } from "../hooks/searchHook";
-import axios from "axios";
 import { fetchRepos } from "../store/repo-actions";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -50,7 +49,8 @@ const Results = () => {
       </div>
       <main className="lg:mx-20 md:mx-10 mx-2 mt-4">
         <section className="mt-4">
-          <RepoList repos={repos} />
+          <RepoList   query={searchParams.get("search_query")}
+              page={searchParams.get("page") ? searchParams.get("page") : 1} />
         </section>
       </main>
     </Container>

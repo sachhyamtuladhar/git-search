@@ -33,8 +33,9 @@ const DetailPage = () => {
       <main className="lg:mx-40 md:mx-10 mx-2 mt-4">
         <ol className="inline-flex items-center space-x-1 md:space-x-3">
           <li className="flex">
-            <Link to="/" className="flex gap-2">
-              <HomeIcon fill="#000"  />
+            
+            <Link to="/" className="flex gap-2 bg-blue-500 text-white font-bold py-2 px-4 rounded shadow hover:bg-blue-800 transition duration-300">
+              <HomeIcon fill="#fff" />
               Home
             </Link>
           </li>

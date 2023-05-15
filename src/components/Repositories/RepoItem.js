@@ -31,11 +31,11 @@ const RepoItem = ({repo}) => {
           <img
               src={repo.owner.avatar_url}
               alt="Repository"
-              className="w-48 w-full object-cover md:w-52"
+              className="w-28 object-cover md:w-52"
             />
         </div>
         <div className="p-5">
-          <div className="cursor-pointer  uppercase tracking-wide text-sm text-indigo-500 font-semibold hover:underline" onClick={repoClickHandler}> {repo.full_name}</div>
+          <div className="cursor-pointer  uppercase tracking-wide text-sm text-blue-500 font-semibold hover:underline" onClick={repoClickHandler}> {repo.full_name}</div>
           <div className="block mt-1 text-lg leading-tight font-medium text-black">{repo.owner.login}</div>
           <div className="flex mt-2">
             <div className="flex bg-indigo-500 items-center gap-1 text-white py-0.25 px-1.5 rounded-tl-md">
@@ -46,7 +46,7 @@ const RepoItem = ({repo}) => {
               <EyeIcon className="w-3 h-3" fill="#fff" />
               <p className="text-sm">{repo.watchers} </p>
             </div>
-            <div className="flex items-center gap-1  py-0.25 px-1.5  rounded-br-md bg-sky-600 text-white">
+            <div className="flex items-center gap-1  py-0.25 px-1.5  rounded-br-md bg-blue-500 text-white">
               <ForkIcon className="w-3 h-3" fill="#fff" />
               <p className="text-sm">{repo.forks} </p>
             </div>

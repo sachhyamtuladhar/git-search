@@ -24,7 +24,7 @@ const Homepage = () => {
     <Container>
       <div className="flex justify-center  m-5 animate-fadeIn">
         <div className="flex flex-col items-center">
-          <h1 className="text-blue-500  font-bold text-4xl font-HubotSans ">
+          <h1 className="text-blue-500  font-bold text-5xl font-HubotSans ">
             Github Search
           </h1>
 

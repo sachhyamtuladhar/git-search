@@ -2,8 +2,8 @@ import { repoActions } from "./repo-slice";
 import { base64 } from "../utils/base64";
 import github from "../api/github";
 
-const clientSecret = process.env.REACT_APP_CLIENT_SECRET || "";
-const clientId = process.env.REACT_APP_CLIENT_ID || "";
+const clientSecret = "";
+const clientId = "";
 
 //fetching list of repositories
 export const fetchRepos = (query, page, sortValue = "default") => {

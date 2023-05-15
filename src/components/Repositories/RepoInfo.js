@@ -60,31 +60,31 @@ const RepoInfo = () => {
 
             <div className="flex gap-1 pb-[0.3rem]">
               <div className="flex items-center">
-                <StarIcon className="w-[0.87rem] h-[0.87rem]" />
+                <StarIcon className="w-[0.87rem] h-[0.87rem] mr-2" />
               </div>
               <p className="text-md">{selectedRepo.stargazers_count} stars</p>
             </div>
             <div className="flex gap-1 pb-[0.3rem]">
               <div className="flex items-center">
-                <EyeIcon className="w-[0.87rem] h-[0.87rem]" />
+                <EyeIcon className="w-[0.87rem] h-[0.87rem] mr-2" />
               </div>
               <p className="text-md">{selectedRepo.watchers} watching</p>
             </div>
             <div className="flex gap-1 pb-[0.3rem]">
               <div className="flex items-center">
-                <ForkIcon className="w-[0.87rem] h-[0.87rem]" />
+                <ForkIcon className="w-[0.87rem] h-[0.87rem] mr-2" />
               </div>
               <p className="text-md">{selectedRepo.forks_count} forks</p>
             </div>
             <div className="flex gap-1 pb-[0.3rem]">
               <div className="flex items-center">
-                <BugIcon className="w-[0.87rem] h-[0.87rem]" />
+                <BugIcon className="w-[0.87rem] h-[0.87rem] mr-2" />
               </div>
               <p className="text-md">
                 {selectedRepo.open_issues_count} open issues
               </p>
             </div>
-            <div className="flex gap-1 pb-[0.3rem]">
+            <div className="flex gap-1 pb-[0.3rem] mt-3">
               <p className="text-md">
                 Last updated on: &nbsp;
                 {selectedRepo.updated_at.split('T')[0]}
