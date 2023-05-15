@@ -11,8 +11,10 @@ const Pagination = ({ currentPage, onHandlePage, size }) => {
   const lastPage = Math.ceil(size / 25) > 40 ? 40 : Math.ceil(size / 25);
   const listOfFirstPages = [1, 2, 3]
   const listOfLastPages = [lastPage - 2, lastPage - 1, lastPage]
+  const listOfMiddlePages = [currentPage - 1, currentPage, +currentPage + 1]
 
-  return lastPage > 1 && <div class="flex justify-center items-center mt-4">
+
+  return lastPage > 1 && <div className="flex justify-center items-center mt-4">
     <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
       <button onClick={() => {
         if (currentPage <= 1) return;
@@ -23,15 +25,23 @@ const Pagination = ({ currentPage, onHandlePage, size }) => {
         <span className="sr-only">Previous</span>
         <ArrowLeft fill="#fff" />
       </button>
-      {listOfFirstPages.map(pageNumber => <button key={pageNumber}  onClick={() => {
-          if (currentPage >= lastPage) return;
+      {listOfFirstPages.map(pageNumber => <button key={pageNumber} onClick={() => {
+
+        onHandlePage(pageNumber);
+      }} className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-blue-500 text-sm font-medium text-white hover:bg-blue-300">{pageNumber}</button>)}
+      <span className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-blue-500 text-sm font-medium text-white">...</span>
+      {currentPage > 3 && currentPage < lastPage - 2 && <>
+        {listOfMiddlePages.map(pageNumber => <button key={pageNumber} onClick={() => {
           onHandlePage(pageNumber);
         }} className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-blue-500 text-sm font-medium text-white hover:bg-blue-300">{pageNumber}</button>)}
-      <span className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-blue-500 text-sm font-medium text-white">...</span>
+        <span className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-blue-500 text-sm font-medium text-white">...</span>
+      </>
+      }
+
       {listOfLastPages.map(pageNumber => <button key={pageNumber} onClick={() => {
-          if (currentPage >= lastPage) return;
-          onHandlePage(pageNumber);
-        }}  className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-blue-500 text-sm font-medium text-white hover:bg-blue-300">{pageNumber}</button>)}
+
+        onHandlePage(pageNumber);
+      }} className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-blue-500 text-sm font-medium text-white hover:bg-blue-300">{pageNumber}</button>)}
 
       <button
         onClick={() => {
